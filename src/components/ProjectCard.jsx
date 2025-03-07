@@ -1,10 +1,12 @@
 import { Github, Linkedin, SquareArrowOutUpRight } from 'lucide-react'
-import React from 'react'
+import React, { useContext } from 'react'
+import { ThemeContext } from '../context/ThemeContext'
 
 export const ProjectCard = ({project}) => {
-  console.log(project)
-    return (
-    <div className='flex justify-between p-10 m-10 shadow-md'>
+  const {isDark} = useContext(ThemeContext)
+
+  return (
+    <div className={`${isDark? 'bg-black text-white border' : 'bg-white text-black'} flex justify-between p-10 m-10 shadow-md`}>
         <div className='w-80%'>
             <p className='text-[24px] pb-5'><strong>{project.name}</strong></p>
             <p className='text-justify text-[24px]'>{project.description}</p>

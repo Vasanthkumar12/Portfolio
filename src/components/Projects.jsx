@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import {ProjectCard} from './ProjectCard'
+import { ThemeContext } from '../context/ThemeContext'
+
 
 export const Projects = () => {
+    const {isDark} = useContext(ThemeContext)
     const projects = [
         {
             "name": "Khan Academy Cloned Website",
@@ -19,7 +22,7 @@ export const Projects = () => {
         },
     ]
   return (
-    <div className='p-10 shadow-md'>
+    <div className={`${isDark? 'bg-black text-white border-b-1' : 'bg-white text-black'} p-10 shadow-md`}>
         <h1 className='text-center text-[40px] mt-10'>Projects</h1>
         {projects.map((project, id) => (
             <ProjectCard key={id} project={project} />

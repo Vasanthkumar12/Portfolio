@@ -1,10 +1,13 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCss3Alt, faGit, faGithub, faHtml5, faReact, faSquareJs } from '@fortawesome/free-brands-svg-icons'
-import React from 'react'
+import React, { useContext } from 'react'
+import { ThemeContext } from '../context/ThemeContext'
 
 export const Skills = () => {
+    const {isDark} = useContext(ThemeContext)
+
   return (
-    <div className='flex flex-col items-center p-20 shadow-md text-[40px]'>
+    <div className={`${isDark? 'bg-black text-white border-b-1' : 'bg-white text-black'} flex flex-col items-center p-20 shadow-md text-[40px]`}>
         <h1>Skills</h1>
         <div className='pt-20 flex flex-row'>
             <div className='flex flex-col mr-20'>

@@ -1,10 +1,14 @@
 import { Github, Linkedin } from 'lucide-react'
 import React from 'react'
 import image from '../assets/Vasanthkumar.png'
+import { ThemeContext } from '../context/ThemeContext'
+import { useContext } from 'react'
 
 export const Hero = () => {
+    const values = useContext(ThemeContext)
+
   return (
-    <div className='flex flex-row items-center shadow-md p-20'>
+    <div className={`${values.isDark ? 'bg-black text-white border-b-1' : 'bg-white text-black'} flex flex-row items-center shadow-md p-20`}>
         <div className='flex flex-col items-center'>
             <h1 className='text-[40px] pb-10'>Full Stack Web Developer</h1>
             <p className='pb-10 text-[24px]'>Dynamic and detail-oriented Full Stack Web Developer with seven months of 
